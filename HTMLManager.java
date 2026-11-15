@@ -55,7 +55,7 @@ public class HTMLManager {
 
   public String toString(){
 
-    String output = "";
+    String output = "\n";
     int length = tags.size();
     for(int i = 0; i < length; i++){
       HTMLTag element = tags.remove();

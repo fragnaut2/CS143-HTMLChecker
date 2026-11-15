@@ -73,3 +73,116 @@ public class HTMLChecker {
         return m;
     }
 }
+
+/*
+
+***For some reason, my program output seems to refuse to match the formatting present in the 
+expected output files. I have run the program in JGrasp, VSCode, as well as compiling directly
+from the command prompt using javac and all three seem to lead to the same result for test 4
+and 5. I don't know why the program is accumulating strange newline characters where I don't
+add them, but the sequence of tags seems to be correct for the final two tests.***
+
+PROGRAM OUTPUT:
+
+===============================
+Processing tests/test1.html...
+===============================
+HTML: 
+<b><i><br /></b></i>
+Checking HTML for errors...
+HTML after fix: 
+<b><i><br /></i></b>
+----> Result matches Expected Output!
+
+===============================
+Processing tests/test2.html...
+===============================
+HTML: 
+<a><a><a></a>
+Checking HTML for errors...
+HTML after fix: 
+<a><a><a></a></a></a>
+----> Result matches Expected Output!
+
+===============================
+Processing tests/test3.html...
+===============================
+HTML: 
+<br /></p></p>
+Checking HTML for errors...
+HTML after fix: 
+<br />
+----> Result matches Expected Output!
+
+===============================
+Processing tests/test4.html...
+===============================
+HTML: 
+<div>
+    <div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li>
+    </ul></div>
+Checking HTML for errors...
+HTML after fix: 
+<div>
+    <div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li>
+    </li></ul></div></div>
+----> Something isn't working right! 
+Fixed HTML should be: 
+
+<div>
+    <div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    </div></div>
+
+===============================
+Processing tests/test5.html...
+===============================
+HTML: 
+<div>
+    <h1></h1>
+    <div>
+        <img />
+        <p><br />
+          <br />
+          <br />        
+    </div></div></table>
+Checking HTML for errors...
+HTML after fix: 
+<div>
+    <h1></h1>
+    <div>
+        <img />
+        <p><br />
+          <br />
+          <br />        
+    </p></div></div>
+----> Something isn't working right! 
+Fixed HTML should be: 
+
+<div>
+    <h1></h1>
+    <div>
+        <img />
+        <p><br />
+               <br />
+               <br />        
+        </p>
+    </div></div>
+
+===============================
+Failed tests: test4.html test5.html 
+===============================
+
+*/
