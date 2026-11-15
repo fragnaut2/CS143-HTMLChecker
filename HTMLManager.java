@@ -18,7 +18,32 @@ public class HTMLManager {
   public void fixHTML(){
     Stack<HTMLTag> temp = new Stack<>();
 
-    
+    int size = tags.size();
+    for(int i = 0; i < size; i++){
+
+      HTMLTag test = tags.remove();
+
+      if(test.isOpening()){
+        temp.push(test);
+        tags.add(test);
+      } else if(test.isSelfClosing()){
+        tags.add(test);
+      } else if(test.isClosing()){
+        HTMLTag other = temp.pop();
+        if(test.matches(other)){
+          tags.add(test);
+        } else {
+          tags.add(other.getMatching());
+        }
+      }
+      // System.out.println(temp);
+      // System.out.println(tags);
+    }
+
+    while(temp.size() != 0){
+      HTMLTag test = temp.pop();
+      tags.add(test.getMatching());
+    }
   }
 
   public String toString(){
