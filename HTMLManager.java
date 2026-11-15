@@ -4,11 +4,21 @@ public class HTMLManager {
   private Queue<HTMLTag> tags;
 
   public HTMLManager(Queue<HTMLTag> tags){
-    this.tags = tags;
+    if(tags == null){
+      throw new IllegalArgumentException();
+    } else {
+      this.tags = tags;
+    }
   }
 
   public Queue<HTMLTag> getTags(){
     return tags;
+  }
+
+  public void fixHTML(){
+    Stack<HTMLTag> temp = new Stack<>();
+
+    
   }
 
   public String toString(){
