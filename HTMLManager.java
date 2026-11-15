@@ -29,11 +29,15 @@ public class HTMLManager {
       } else if(test.isSelfClosing()){
         tags.add(test);
       } else if(test.isClosing()){
-        HTMLTag other = temp.pop();
-        if(test.matches(other)){
-          tags.add(test);
-        } else {
-          tags.add(other.getMatching());
+        if(temp.size() != 0){
+
+          HTMLTag other = temp.pop();
+          if(test.matches(other)){
+            tags.add(test);
+          } else {
+            tags.add(other.getMatching());
+          }
+
         }
       }
       // System.out.println(temp);
@@ -47,7 +51,6 @@ public class HTMLManager {
   }
 
   public String toString(){
-    Queue<HTMLTag> temp = new LinkedList<>();
     String output = "";
     int length = tags.size();
     for(int i = 0; i < length; i++){
