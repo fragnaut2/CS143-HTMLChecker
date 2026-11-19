@@ -38,31 +38,25 @@ public class HTMLManager {
               tags.add(other.getMatching());
             }
           }
-        }
-        
+        } 
       }
-      
-      
     }
 
     while(temp.size() != 0){
       HTMLTag test = temp.pop();
       tags.add(test.getMatching());
     }
-
-    
   }
 
   public String toString(){
 
     String output = "\n";
-    int length = tags.size();
-    for(int i = 0; i < length; i++){
+    int size = tags.size();
+    for(int i = 0; i < size; i++){
       HTMLTag element = tags.remove();
       output += element.toString();
       tags.add(element);
     }
-
     return output;
   }
   
