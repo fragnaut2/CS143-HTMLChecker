@@ -52,7 +52,7 @@ public class HTMLManager {
     int size = tags.size();
     for(int i = 0; i < size; i++){
       HTMLTag element = tags.remove();
-      output += element.toString();
+      output += element.toString().trim();
       tags.add(element);
     }
     return output;
