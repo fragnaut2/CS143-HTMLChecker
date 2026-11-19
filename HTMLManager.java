@@ -40,7 +40,7 @@ public class HTMLManager {
       }
     }
 
-    while(temp.size() != 0){
+    while(!temp.isEmpty()){
       HTMLTag test = temp.pop();
       tags.add(test.getMatching());
     }
